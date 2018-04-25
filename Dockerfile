@@ -9,7 +9,7 @@ LABEL                   license="See: LICENSE.txt for complete licensing informa
 LABEL                   support="caldav AT cime.net"
 LABEL                   version="2.1"
 
-
+RUN			apt-get clean && apt-get update && apt-get install -y locales
 ### "set-locale"
 RUN                     locale-gen en_US.UTF-8 && \
                         update-locale LANG=en_US.UTF-8 && \
@@ -46,7 +46,8 @@ RUN                     apt-get install postfix
 RUN                     apt-get install mailutils
 RUN                     apt-get install rsyslog
 RUN                     apt-get install sqlite3
-RUN                     apt-get install php
+RUN                     apt-get install mysql-client
+RUN 					apt-get install php-mysqli 
 RUN                     apt-get install libapache2-mod-php
 RUN                     apt-get install php-date
 RUN                     apt-get install php-dom
