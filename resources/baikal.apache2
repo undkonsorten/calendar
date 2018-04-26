@@ -7,7 +7,8 @@ ServerName calendar.example.org
     RewriteEngine On
     RewriteRule /.well-known/carddav /dav.php [R,L]
     RewriteRule /.well-known/caldav /dav.php [R,L]
-
+	SetEnv HTTPS on
+	
 	<Directory "/var/www/calendar_server/html">
 		Options None
 		Options +FollowSymlinks
